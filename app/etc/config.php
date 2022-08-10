@@ -353,6 +353,7 @@ return [
         'ScandiPWA_WishlistGraphQl' => 1,
         'ScandiPWA_MenuOrganizer' => 1,
         'ScandiPWA_SliderGraphQl' => 1,
+        'Scandiweb_Test' => 1,
         'Temando_ShippingRemover' => 1
     ]
 ];
