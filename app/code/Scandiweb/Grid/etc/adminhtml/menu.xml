@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+  * @category  Scandiweb
+  * @package   Scandiweb_Grid
+  * @author    Kirolos Nashed <kirolos.nashed@scandiweb.com>
+  * @copyright Copyright (c) 2024 Scandiweb, Inc (https://scandiweb.com)
+  * @license   http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0 (OSL-3.0)
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Scandiweb_Grid::admin" title="Admin" module="Scandiweb_Grid" sortOrder="60"
+             resource="Scandiweb_Grid::admin" parent="Scandiweb_Core::all"/>
+        <add id="Scandiweb_Grid::admin_users" title="Admin Users" module="Scandiweb_Grid" sortOrder="10"
+             parent="Scandiweb_Grid::admin" action="scandiweb_grid/index/index" resource="Scandiweb_Grid::admin"/>
+    </menu>
+</config>
+
