@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @package Shipping Rules for Magento 2
  */
 
-namespace MyApp\Migration\Setup\Patch\Data;
+namespace Amasty\Shiprules\Setup\Patch\Data;
 
 use Amasty\Shiprules\Model\ResourceModel\Rule as RuleResource;
 use Amasty\Shiprules\Model\ResourceModel\Rule\Collection;
@@ -47,7 +47,6 @@ class MigrateDataToSeparateTables implements DataPatchInterface
 
             if ($ruleData['stores']) {
                 $stores = array_filter($stores, 'strlen'); // Remove empty values
-
                 foreach ($stores as $storeId) {
                     $storeInsert[] = [
                         $ruleId,
@@ -55,9 +54,8 @@ class MigrateDataToSeparateTables implements DataPatchInterface
                     ];
                 }
             }
-        }
 
-            if ($ruleData['cust_groups'] || $ruleData['cust_groups'] === '0') {
+            if ($ruleData['cust_groups'] || $ruleData['cust_groups'] === '0') {                
                 $groups = explode(',', $ruleData['cust_groups']);
                 $groups = array_filter($groups, 'strlen'); // Remove empty values
 
