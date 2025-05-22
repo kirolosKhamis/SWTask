@@ -46,19 +46,22 @@ class MigrateDataToSeparateTables implements DataPatchInterface
             $ruleId = (int)$ruleData['rule_id'];
 
             if ($ruleData['stores']) {
-                $stores = explode(',', trim($ruleData['stores'], ','));
-                if (!in_array(0, $stores, false)) {
-                    foreach ($stores as $storeId) {
-                        $storeInsert[] = [
-                            $ruleId,
-                            (int)$storeId
-                        ];
-                    }
+                $stores = array_filter($stores, 'strlen'); // Remove empty values
+
+                foreach ($stores as $storeId) {
+                    $storeInsert[] = [
+                        $ruleId,
+                        (int)$storeId
+                    ];
                 }
             }
+        }
 
             if ($ruleData['cust_groups'] || $ruleData['cust_groups'] === '0') {
-                foreach (explode(',', trim($ruleData['cust_groups'], ',')) as $group) {
+                $groups = explode(',', $ruleData['cust_groups']);
+                $groups = array_filter($groups, 'strlen'); // Remove empty values
+
+                foreach ($groups as $group) {
                     $groupsInsert[] = [
                         $ruleId,
                         (int)$group
